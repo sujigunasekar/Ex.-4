@@ -5,22 +5,21 @@
 To design an AI-powered chatbot that assists customers in resolving issues related to product troubleshooting, order tracking, and general inquiries. The chatbot should handle various customer queries efficiently while maintaining a conversational and user-friendly tone. In this experiment, we will employ different prompt patterns to guide the development process of the chatbot, ranging from basic task-oriented prompts to more complex, persona-driven prompts. Case study 2 with Comparative Analysis Prompt, Comparative Analysis Prompt and Prompt Size Limitations
 
 ### Explanation - Any one use case from Unit 5 and generate the report for that with the unit 2 Prompt type
-Procedure:
+### Procedure:
 1.	Define the Scenario and Use Case:
-Scenario:
+### Scenario:
 The manufacturing industry is looking to reduce manual monitoring and increase efficiency through automation. The system will utilize IoT devices and embedded controllers to automate equipment, monitor performance, and enable predictive maintenance. The goal is to streamline the production process, minimize downtime, and enhance energy efficiency.
-Target Audience:
+### Target Audience:
 Manufacturing companies, specifically in sectors like automotive, electronics, and food processing, where automation can significantly improve productivity.
 
-
-Main Objectives:
+### Main Objectives:
 
 •	Improve production efficiency by 30%.
 •	Minimize machinery downtime with predictive maintenance.
 •	Enable real-time monitoring and remote control of manufacturing systems.
 •	Reduce energy consumption by optimizing processes.
  
-2.	Identify Prompt Patterns for Each Design Aspect:
+### 2.	Identify Prompt Patterns for Each Design Aspect:
 Idea Generation Prompts:
 
 •	Prompt: “What features can be incorporated into the automation system to optimize production and reduce downtime?” Generated Ideas:
@@ -29,100 +28,145 @@ Idea Generation Prompts:
 •	Energy usage optimization by automating the switching of machines on/off based on demand.
 •	Cloud-based dashboards for remote monitoring and control of machinery.
 
-Persona and Context Prompts:
+### Persona and Context Prompts:
 
 •	Prompt: “What should the user interface and control system convey to the operators and managers?” Generated Context:
 •	The user interface should be intuitive and provide real-time data on machine performance, energy usage, and alerts.
 •	The system should convey reliability and ease of use, with minimal training required for operators.
 
-## 1. Direct Instruction Prompts:
-Objective: Guide the chatbot to respond concisely to customer inquiries.
+## Prompting Techniques
+### 🔹 1. Straightforward Prompt
+#### 📝 Prompt Input:
+A 65-year-old male has high fever (38.9°C), chest pain, and persistent cough. Suggest a diagnosis and treatment.
 
-Prompt Pattern:
-“When a customer asks for the status of their order, reply with: ‘Your order is currently being processed and will be delivered by [date].’”
+#### 🤖 Meta’s LLaMA Response:
 
-Chatbot Example Response:
+Likely diagnosis is pneumonia. Recommend broad-spectrum antibiotics, rest, hydration, and paracetamol for fever. Suggest chest X-ray, complete blood count, and oxygen saturation monitoring.
 
-Chatbot: “Your order is currently being processed and will be delivered by [date].”
+#### 🤖 Google Gemini Response:
 
-## 2. Contextual Prompting:
-Objective: Incorporate specific context based on the user's previous interaction to provide more tailored responses.
+Symptoms are consistent with pneumonia or COVID-19. Recommend antibiotics if bacterial pneumonia is suspected or antivirals if COVID-19 confirmed. Suggest PCR test, chest imaging, and hospital observation if condition worsens.
 
-Prompt Pattern:
-“If the customer previously mentioned that they haven’t received their order, say, ‘I see that you mentioned your order hasn't arrived yet. Let me check the details for you and get back shortly.’”
+### ✅ Comparison:
 
-Chatbot Example Response:
+Meta’s LLaMA is focused, accurate, and concise.
 
-Chatbot: “I see that you mentioned your order hasn't arrived yet. Let me check the details for you and get back shortly.”
+Gemini includes wider differential and modern diagnostic pathways.
 
-## 3. Persona-Based Prompting:
-Objective: Design the chatbot to adopt a specific persona, making the interaction more engaging.
+Best: Gemini (more comprehensive and updated).
 
-Prompt Pattern:
-“Pretend you are a friendly, helpful customer service representative. Use a conversational tone, such as ‘Hey there! I’m here to help with any questions you might have. Let’s get your issue sorted!’”
+### 🔹 2. Tabular Format Prompt
+#### 📝 Prompt Input:
+"Interpret the following patient data and provide diagnosis and treatment suggestions."
+| Symptom             | Value          |
+| ------------------- | -------------- |
+| Temperature         | 38.9°C         |
+| Respiratory Rate    | 22 breaths/min |
+| Heart Rate          | 105 bpm        |
+| Blood Pressure      | 145/90 mmHg    |
+| Cough               | Persistent     |
+| Shortness of Breath | Present        |
 
-Chatbot Example Response:
+### 🤖 Meta’s LLaMA Response:
 
-Chatbot: “Hey there! I’m here to help with any questions you might have. Let’s get your issue sorted!”
+Signs suggest a respiratory infection, likely pneumonia. Recommend antibiotics, chest X-ray, oxygen monitoring, and supportive care (fluids, rest, paracetamol).
 
-## 4. Few-Shot Prompting:
-Objective: Teach the AI how to respond using a few examples, enabling it to generalize for similar situations.
+#### 🤖 Google Gemini Response:
 
-Prompt Pattern:
-“Here are some examples of how to handle technical questions:
-‘My phone isn’t charging.’ → ‘Have you tried using a different cable? If that doesn’t work, it may be an issue with the port.’
-‘The screen is flickering.’ → ‘It sounds like a display issue. Have you tried restarting the device?’
-Now, respond to: ‘My app keeps crashing.’”
+The elevated temperature, high respiratory rate, and cough indicate pneumonia. Immediate tests include chest X-ray and blood culture. Start empirical antibiotics and observe oxygen saturation. Consider hospitalization if elderly/comorbid.
 
-Chatbot Example Response:
+#### ✅ Comparison:
 
-Chatbot: “It sounds like an app issue. Have you tried restarting the app or updating to the latest version?”
+Both tools identify the correct diagnosis.
 
-## 5. Chain of Thought Prompting:
-Objective: Use a step-by-step reasoning approach for resolving more complex or technical issues.
+Gemini provides more structured clinical steps and is tailored for high-risk patients.
 
-Prompt Pattern:
-*“When a customer reports their laptop overheating, guide them through the following steps:
+Best: Gemini (structured output and patient risk evaluation).
 
-Ask if they are using the laptop on a soft surface.
+### 🔹 3. Missing Word Prompt
+#### 📝 Prompt Input:
+"Patient is experiencing joint pain, fatigue, and swelling. Most likely diagnosis is ____. Recommended treatment is ____."
 
-Suggest moving the laptop to a flat, hard surface for better airflow.
+#### 🤖 Meta’s LLaMA Response:
 
-Ask if they’ve cleaned the vents recently.
+Diagnosis is rheumatoid arthritis. Recommended treatment is NSAIDs, DMARDs like methotrexate, and physiotherapy.
 
-Recommend restarting the device to see if the issue persists. Now, solve: ‘My laptop fan is making a loud noise.’”*
+#### 🤖 Google Gemini Response:
 
-Chatbot Example Response:
+Most likely diagnosis: Rheumatoid arthritis. Treatment: Anti-inflammatory medications, physical therapy, and possible DMARDs. Recommend rheumatologist referral.
 
-Chatbot: “Let’s start by checking a few things:
+### ✅ Comparison:
 
-Are you using the laptop on a soft surface like a bed or couch? If so, try using it on a hard, flat surface.
+Both provide accurate and appropriate completions.
 
-Have you cleaned the vents recently? Dust can accumulate and cause the fan to work harder.
+Gemini includes specialist referral and slightly more layman-friendly phrasing.
 
-Try restarting the laptop to see if the noise persists. If it does, the fan may need cleaning or replacement.”
+Best: Tie (Gemini slightly more patient-friendly, but both are accurate).
 
-## 6. Instruction with Constraints:
-Objective: Instruct the chatbot to provide assistance while adhering to specific constraints (e.g., response length or tone).
+### 🔹 4. Chain-of-Thought Prompt
+#### 📝 Prompt Input:
+"An elderly patient with diabetes and hypertension reports swollen ankles and breathlessness at night. What’s the diagnosis? Explain step-by-step."
 
-Prompt Pattern:
-“Respond to order inquiries in no more than 50 words and avoid using technical jargon. For example, ‘Your order is on the way and should arrive by [date]. Feel free to reach out if you need anything else.’”
+#### 🤖 Meta’s LLaMA Response:
 
-Chatbot Example Response:
+Patient is elderly with chronic conditions.
 
-Chatbot: “Your order is on the way and should arrive by [date]. Let me know if you need anything else!”
+Symptoms suggest fluid overload.
 
-## 7. Reflective Prompting:
-Objective: Ensure that the chatbot reflects the user’s query back to them before providing a response, reducing misunderstandings.
+Nocturnal breathlessness is typical of orthopnea.
 
-Prompt Pattern:
-“When a customer asks for help, first reflect their question back to them. For example, if they ask ‘How can I reset my password?’ respond with ‘You're asking how to reset your password, correct? Here’s how you can do it.’”
+Likely diagnosis: congestive heart failure.
 
-Chatbot Example Response:
+Suggest echocardiogram, diuretics, and cardiology referral.
 
-Chatbot: “You're asking how to reset your password, correct? Here’s how you can do it: Go to the login page, click 'Forgot password', and follow the instructions sent to your email.”
+#### 🤖 Google Gemini Response:
 
+Diabetes and hypertension increase cardiovascular risk.
 
+Swollen ankles = fluid retention.
+
+Breathlessness at night = orthopnea, common in heart failure.
+
+Most likely diagnosis is congestive heart failure (CHF).
+
+Treatment includes fluid restriction, diuretics, and monitoring BP/glucose.
+
+#### ✅ Comparison:
+
+Both tools demonstrate clear logical flow.
+
+Gemini explains terms like orthopnea, includes glucose/BP management.
+
+Best: Gemini (better patient explanation and holistic advice).
+
+### 🔹 5. Role-Based Prompt
+#### 📝 Prompt Input:
+"As a friendly AI nurse, explain to a 70-year-old diabetic patient how to manage their condition at home."
+
+### 🤖 Meta’s LLaMA Response:
+
+"To manage diabetes, you should monitor your blood sugar, take medications as prescribed, eat a balanced diet, and exercise regularly. Don’t forget to check your feet daily. If you feel dizzy or confused, contact your doctor."
+
+### 🤖 Google Gemini Response:
+
+"Hi there! Managing your diabetes is really important, and I’m here to help you every step of the way 😊. Check your blood sugar daily, follow a healthy meal plan (low sugar, high fiber), stay active (light walking is great!), and take your medicine on time. Remember, you’re not alone – reach out to your doctor if anything feels off. You're doing great! 💪"
+
+### ✅ Comparison:
+
+Meta’s response is helpful but formal.
+
+Gemini uses empathetic tone, emojis, and reassurance — great for elderly users.
+
+Best: Gemini (excellent tone and human-like interaction).
+
+### ✅ Overall Summary
+| Prompt Type              | Best Tool | Reason                                           |
+| ------------------------ | --------- | ------------------------------------------------ |
+| Straightforward Prompt   | Gemini    | Broader differential & test suggestions          |
+| Tabular Format Prompting | Gemini    | More structured and clinically aware             |
+| Missing Word Prompting   | Tie       | Both accurate, Gemini slightly more approachable |
+| Chain-of-Thought         | Gemini    | Clearer logical flow and explanations            |
+| Role-Based Prompt        | Gemini    | Empathetic and friendly tone                     |
 
 # Result: 
 Thus the Prompts were exected succcessfully.
