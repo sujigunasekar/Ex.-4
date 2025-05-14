@@ -9,11 +9,11 @@ To design an AI-powered chatbot that assists customers in resolving issues relat
 1.	Define the Scenario and Use Case:
 ### Scenario:
 The manufacturing industry is looking to reduce manual monitoring and increase efficiency through automation. The system will utilize IoT devices and embedded controllers to automate equipment, monitor performance, and enable predictive maintenance. The goal is to streamline the production process, minimize downtime, and enhance energy efficiency.
+
 ### Target Audience:
 Manufacturing companies, specifically in sectors like automotive, electronics, and food processing, where automation can significantly improve productivity.
 
 ### Main Objectives:
-
 •	Improve production efficiency by 30%.
 •	Minimize machinery downtime with predictive maintenance.
 •	Enable real-time monitoring and remote control of manufacturing systems.
